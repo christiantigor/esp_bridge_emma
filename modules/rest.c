@@ -50,6 +50,13 @@ tcpclient_recv(void *arg, char *pdata, unsigned short len)
 		if(inStatus && i < 3 && c != ' '){
 			statusCode[i] = c;
 			i++;
+			//start edit for emma
+			if(i == 3) {
+				statusCode[i] = '\0';
+				code = atoi(statusCode);
+				INFO("REST: status = %d\r\n",code);
+			}
+			//end edit for emma
 		}
 		if(i == 3){
 			statusCode[i] = '\0';
